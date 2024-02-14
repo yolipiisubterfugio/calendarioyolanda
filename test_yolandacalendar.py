@@ -1,5 +1,6 @@
 from yolandacalendar import fecha_es_valida, es_bisiesto, calcular_dia_semana
 
+
 def test_fecha_es_valida():
     # Casos válidos
     assert fecha_es_valida(1970, 1, 1) == True  # 1 de enero de 1970
