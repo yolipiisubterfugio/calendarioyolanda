@@ -1,4 +1,8 @@
 class Dia:
+    """ Inicialización: La clase debe poder inicializarse tanto con valores por defecto (1 de enero de
+    1970)
+    • Atributos: dia,mes,anyo,dia_semana (0 el sabado y el 6 el viernes)
+    """
     def __init__(self, anyo=1970, mes=1, dia=1):
         self.anyo = anyo
         self.mes = mes
@@ -31,31 +35,34 @@ class Dia:
             return False
 
     def calcular_dia_semana(self):
-        if self.mes < 3:
-            mes = self.mes + 12
-            anyo = self.anyo - 1
+        anyo = self.anyo
+        mes = self.mes
+
+        if anyo >= 2000:
+            while self.anyo >= 2000:
+                A = anyo % 100
+                B = anyo // 100
+                C = 2 - B + B // 4
+                D = A // 4
+                E = 13 * (mes + 1) // 5
+                F = self.dia
+
+                dia_semana = (A + C + D + E + F - 1) % 7
+                return dia_semana
         else:
-            mes = self.mes
-            anyo = self.anyo
+            A = anyo % 100
+            B = anyo // 100
+            C = 2 - B + B // 4
+            D = A // 4
+            E = 13 * (mes + 1) // 5
+            F = self.dia
 
-        A = anyo % 100
-        B = anyo // 100
-        C = 2 - B + B // 4
-        D = A // 4
-        E = 13 * (mes + 1) // 5
-        F = self.dia
-
-        dia_semana = (A + C + D + E + F) % 7
-        
-
-        if dia_semana == 0:
-            return 6  
-        else:
-            return dia_semana - 1  
+            dia_semana = (A + C + D + E + F) % 7
+            return dia_semana
 
 
 
-# Ejemplo de uso:
+
 mi_dia = Dia(1989, 11, 13)
 mi_dia2 = Dia(2000, 2, 29)
 mi_dia3 = Dia(2015, 9, 11)
