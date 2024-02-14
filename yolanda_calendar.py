@@ -32,21 +32,33 @@ class Dia:
 
     def calcular_dia_semana(self):
         if self.mes < 3:
-            self.anyo -= 1
-            self.mes += 12
+            mes = self.mes + 12
+            anyo = self.anyo - 1
+        else:
+            mes = self.mes
+            anyo = self.anyo
 
-        A = self.anyo % 100
-        B = self.anyo // 100
+        A = anyo % 100
+        B = anyo // 100
         C = 2 - B + B // 4
         D = A // 4
-        E = 13 * (self.mes + 1) // 5
-        F = A + C + D + E + self.dia - 1
+        E = 13 * (mes + 1) // 5
+        F = self.dia
 
-        return F % 7
+        dia_semana = (A + C + D + E + F) % 7
+        
+
+        if dia_semana == 0:
+            return 6  
+        else:
+            return dia_semana - 1  
+
+
 
 # Ejemplo de uso:
 mi_dia = Dia(1989, 11, 13)
 mi_dia2 = Dia(2000, 2, 29)
+mi_dia3 = Dia(2015, 9, 11)
 
 print("Año:", mi_dia.anyo)
 print("Mes:", mi_dia.mes)
@@ -57,6 +69,11 @@ print("Año:", mi_dia2.anyo)
 print("Mes:", mi_dia2.mes)
 print("Día:", mi_dia2.dia)
 print("Día de la semana:", mi_dia2.dia_semana)
+
+print("Año:", mi_dia3.anyo)
+print("Mes:", mi_dia3.mes)
+print("Día:", mi_dia3.dia)
+print("Día de la semana:", mi_dia3.dia_semana)
 
 
 
