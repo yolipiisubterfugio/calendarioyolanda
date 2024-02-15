@@ -38,19 +38,7 @@ class Dia:
         anyo = self.anyo
         mes = self.mes
 
-        if anyo >= 2000:
-            while anyo >= 2000:
-                A = anyo % 100
-                B = anyo // 100
-                C = 2 - B + B // 4
-                D = A // 4
-                E = 13 * (mes + 1) // 5
-                F = self.dia
-
-                dia_semana = (A + C + D + E + F - 1) % 7
-                return dia_semana
-            
-        elif self.es_bisiesto():
+        if anyo > 2000:
             A = anyo % 100
             B = anyo // 100
             C = 2 - B + B // 4
@@ -58,9 +46,31 @@ class Dia:
             E = 13 * (mes + 1) // 5
             F = self.dia
 
-            dia_semana = (A + C + D + E + F + 2) % 7 
+            dia_semana = (A + C + D + E + F - 1) % 7
             return dia_semana
-        
+
+        elif anyo == 2000 and mes > 2:  # Si es el año 2000 pero el mes es posterior a febrero
+            A = anyo % 100
+            B = anyo // 100
+            C = 2 - B + B // 4
+            D = A // 4
+            E = 13 * (mes + 1) // 5
+            F = self.dia
+
+            dia_semana = (A + C + D + E + F - 1) % 7
+            return dia_semana
+
+        elif self.es_bisiesto():
+            A = anyo % 100
+            B = anyo // 100
+            C = 2 - B + B // 4
+            D = A // 4
+            E = 13 * (mes + 1) // 5
+            F = self.dia 
+
+            dia_semana = (A + C + D + E + F) % 7 
+            return (dia_semana + 1) % 7  
+            
         else:
             A = anyo % 100
             B = anyo // 100
@@ -71,6 +81,7 @@ class Dia:
 
             dia_semana = (A + C + D + E + F) % 7
             return dia_semana
+
 
 
 mi_dia = Dia(1989, 11, 13)
