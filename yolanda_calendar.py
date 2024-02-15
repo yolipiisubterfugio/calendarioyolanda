@@ -33,6 +33,9 @@ class Dia:
             return True
         else:
             return False
+        
+    """ Calculamos los diferentes casos para los años bisiestos, de 1970 a 2000 y de 2000 en adelante
+    """
 
     def calcular_dia_semana(self):
         anyo = self.anyo

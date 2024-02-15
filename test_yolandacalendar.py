@@ -10,13 +10,13 @@ def test_crear_dia_con_fecha_valida():
     assert dia.dia == 1
 
 def test_crear_dia_con_fecha_invalida():
-    date = Dia(1969, 15, 32)
+    dia = Dia(1969, 15, 32)
     
     Dia()
 
-    assert date.anyo == False
-    assert date.mes == False
-    assert date.dia == False
+    assert dia.anyo == False
+    assert dia.mes == False
+    assert dia.dia == False
     
 
 def test_crear_dia_con_fecha_bisiesta():
