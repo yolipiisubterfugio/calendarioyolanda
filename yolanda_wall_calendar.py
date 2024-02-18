@@ -1,5 +1,5 @@
 from yolanda_calendar import Dia
-class WallCalendar:
+class wall_calendar:
     def __init__(self, anio=1970, mes=1, dia=1):
 
         self.anyo, self.mes, self.dia = self.ajustar_fecha(anio, mes, dia)
@@ -59,9 +59,9 @@ class WallCalendar:
 
         return anio, mes, dia
     
-mi_dia = WallCalendar(1989, 11, 13)
-mi_dia2 = WallCalendar(2000, 2, 29)
-mi_dia3 = WallCalendar(2015, 9, 11)
+mi_dia = wall_calendar(1989, 11, 13)
+mi_dia2 = wall_calendar(2000, 2, 29)
+mi_dia3 = wall_calendar(2015, 9, 11)
 print(mi_dia.mostrar_fecha())
 print(mi_dia2.mostrar_fecha()) 
 print(mi_dia3.mostrar_fecha())
