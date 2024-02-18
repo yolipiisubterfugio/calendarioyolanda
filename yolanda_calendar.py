@@ -27,7 +27,7 @@ class Dia:
         }
 
         return self.dia <= dias_por_mes[self.mes]
-
+    
     def es_bisiesto(self):
         if (self.anyo % 4 == 0 and self.anyo % 100 != 0) or (self.anyo % 400 == 0):
             return True
@@ -105,6 +105,10 @@ print("Año:", mi_dia3.anyo)
 print("Mes:", mi_dia3.mes)
 print("Día:", mi_dia3.dia)
 print("Día de la semana:", mi_dia3.dia_semana)
+
+
+
+
 
 
 
