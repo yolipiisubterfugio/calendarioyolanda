@@ -11,14 +11,14 @@ class Dia:
 
         if not self.fecha_es_valida()and self.es_bisiesto():
             raise ValueError("Fecha no válida")
-
+#definir errores en nº de meses y días (no menos de 1)
     def fecha_es_valida(self):
         if self.mes < 1 or self.mes > 12:
             return False
 
         if self.dia < 1:
             return False
-
+ # definir max dias/mes en función del mes con la excepción de feb
         dias_por_mes = {
             1: 31, 2: 29 if self.es_bisiesto() else 28,
             3: 31, 4: 30, 5: 31, 6: 30,
@@ -27,14 +27,14 @@ class Dia:
         }
 
         return self.dia <= dias_por_mes[self.mes]
-    
+#excepción bisisestos    
     def es_bisiesto(self):
         if (self.anyo % 4 == 0 and self.anyo % 100 != 0) or (self.anyo % 400 == 0):
             return True
         else:
             return False
         
-    """ Calculamos los diferentes casos para los años bisiestos, de 1970 a 2000 y de 2000 en adelante
+    """ Calculamos los diferentes casos para los años bisiestos, de 1970 a 2000 y de 2000 en adelante para la asignacion del dia de la semana
     """
 
     def calcular_dia_semana(self):
