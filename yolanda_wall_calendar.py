@@ -9,7 +9,7 @@ class WallCalendar:
         dia_semana = Dia(self.anyo, self.mes, self.dia).calcular_dia_semana()
 
         # Nombre día semana/meses
-        nombres_dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+        nombres_dias = ["Sábado","Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes"]
         nombres_meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
         # formato fecha
